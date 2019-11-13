@@ -1,0 +1,11 @@
+.vertical{
+    width: 18%;
+    height: auto;
+    float: left;
+    margin-top: 10px;
+    margin-right: 5px;
+    position: static;
+}
+.vertical .btn-primary{
+    width: 100%;
+}

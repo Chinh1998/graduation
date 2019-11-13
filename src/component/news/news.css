@@ -1,0 +1,30 @@
+.contentNew{width: 77%;
+    height: auto;
+    float: left;
+    border: cadetblue 1px solid;
+    border-radius: 10px;
+    margin-bottom: 1%;
+    padding: 1%;
+}
+.contentNew img{
+    width: 35%;
+    float: left;
+    margin-right: 1%;
+}
+.contentNew p{
+    text-align: justify;
+}
+.vertical{float: left;}
+.news_comment{
+    width: 78%;
+    height: auto;
+    margin-right: 1%;
+    margin-left: 1%;
+    float: left;
+}
+.showComment{
+    width: 100%;
+    border-top: solid 1px cornsilk;
+    margin-top: 1%;
+    float: left;
+}

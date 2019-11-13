@@ -1,0 +1,21 @@
+.table-striped{
+    width: 100%;
+}
+.content_comment{
+    width: 85%;
+    border: lightsteelblue 1px solid;
+    border-radius: 20px;
+    margin-top: 1%;;
+}
+
+
+.edit{
+    width:80px;
+    height: 50px;
+    padding: 0;
+    }
+.delete{
+    width:50px;
+    height: 50px;
+    padding: 0;
+    }
