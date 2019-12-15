@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
+import ls from 'local-storage';
 import PostsTable from './PostsTable';
+import './myprofile.css'
 
 class My_profile extends Component{
   constructor() {
@@ -11,8 +13,21 @@ class My_profile extends Component{
   }
   
   async componentDidMount() {
-    const response = await fetch('/news');
+    const token =ls.get('jwtToken')
+    const requestOptions = {
+      method: "GET",
+      headers: {
+          "Content-Type":"application/json",
+          'Authorization': "Bearer " + token
+      },
+    };
+    const response = await fetch('/news/mypost',requestOptions);
     const body = await response.json();
+    if(response.ok){
+      
+    }else{
+      this.props.history.push('/login')
+    }
     this.setState({ posts: body, isLoading: false });
   }
 render(){
@@ -23,7 +38,6 @@ render(){
 }
     return(
         <div className="myprofile">
-          
             <PostsTable posts={posts}/>
         </div>
     );

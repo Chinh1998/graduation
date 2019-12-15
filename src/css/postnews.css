@@ -29,3 +29,8 @@
 .postnews p{
     text-align: justify;
 }
+.link{
+    background: none;
+    border: none;
+    text-align: left;
+}

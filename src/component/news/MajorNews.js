@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PostNews from '../PostNews';
 
-class MajorNews extends Component{
+class MajorNews extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -9,9 +9,19 @@ class MajorNews extends Component{
             posts: [],
         }
     }
-    async componentDidMount() {
+
+    componentDidMount() {
+        this.getData();
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.match.params.majorId !== prevProps.match.params.majorId) {
+            this.getData();
+        }
+    }
+
+    async getData() {
         const majorId = this.props.match.params.majorId;
-        console.log(majorId);
         const viewNews = await fetch('/major/'+majorId+"/news");
         const body = await viewNews.json();
         this.setState({
@@ -19,9 +29,9 @@ class MajorNews extends Component{
             posts: body,
         });
     }
+
     render(){
         const { posts } = this.state;
-        console.log(posts)
         return (
             <div className="post_app">
                 {posts.map(post =>

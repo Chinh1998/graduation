@@ -1,21 +1,44 @@
-.table-striped{
-    width: 100%;
+.comment{
+    width: 90%;
+    box-sizing: border-box;
 }
-.content_comment{
-    width: 85%;
-    border: lightsteelblue 1px solid;
+.box{
+    width: 90%;
+    float: left;
     border-radius: 20px;
-    margin-top: 1%;;
+    background: lightskyblue;
+    margin: 0 0 5px 0;
+   }
+.comment .mancomment{
+    width: 30%;
 }
-
-
+.box_comment{
+    width: 24%;
+    float: left;
+    padding: 1% 0 0 1%;
+    border-right: solid 1px;
+}
+.comment .content_comment{
+    width: 74%;
+    margin: 1% 0 2% 0%;
+    padding-left: 4%;
+    float: left;
+    
+}
 .edit{
-    width:80px;
-    height: 50px;
-    padding: 0;
+    width:8%;
+    height: 30px;
     }
-.delete{
-    width:50px;
-    height: 50px;
-    padding: 0;
-    }
+.action{
+    width: 8%;
+    margin: 15px 0 0 0;
+    height: 20px;
+    float:right;
+}
+.icon-delete{
+    width: 10px;
+    height: 25px;
+}
+.icon-delete:hover{
+    background: red;
+}

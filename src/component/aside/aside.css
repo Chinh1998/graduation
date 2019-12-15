@@ -1,9 +1,11 @@
 .aside{
-    width: 18%;
+    width: 20%;
     height: auto;
-    border: solid 1px black ;
     float: left;
     margin-top: 10px;
-    margin-right: 1%;
-    display: block;
+    margin-right: 3%;
+    position: static;
+}
+ .btn-primary{
+    width: 100%;
 }

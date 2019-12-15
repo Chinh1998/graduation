@@ -1,4 +1,5 @@
 import React, {Component} from  "react"
+import ls from 'local-storage'
 import "./createpost.css"
 
 class CreatePost extends Component{
@@ -13,31 +14,39 @@ class CreatePost extends Component{
         }
       onChange(ev) {
             this.setState({value: ev.target.value});
-            console.log(ev.target.value)
-          }
+           }
      async createPost(event){
+        const token = ls.get('jwtToken');
         event.preventDefault();
         const data= {
             "title": this.title.value,
             "image": "/image/slide2.png",
             "content": this.content.value,
             "view": 0,
-            "user_id": "a55a91bb-7434-4fbf-a597-0c873dedb11e",
             "majors_id": this.state.value,
             "approved": "true"
             
         }
         const requestOptions = {
             method: "POST",
-            headers: {"Content-Type":"application/json"},
+            headers: {
+                "Content-Type":"application/json",
+                'Authorization': "Bearer " + token
+            },
             body: JSON.stringify(data)
           };
-            await fetch('/news',requestOptions);
+           const response= await fetch('/news/create', requestOptions);
+           if(response.ok){
+               const result = await response.json();
+               this.props.history.push('/viewnews/'+result.id);
+           }
+           
     }
     async componentDidMount() {
         const response = await fetch('/major');
         const body = await response.json();
         this.setState({ majors: body });
+        console.log(JSON.parse(localStorage.getItem('jwtToken')));
       }
     render(){
         const {majors} = this.state
@@ -51,8 +60,10 @@ class CreatePost extends Component{
                                 <input ref={(ref) => {this.title = ref}} type="text" name="title" className="form-control"/>
                                 <label >Chuyên Ngành</label>
                                     <select value={this.state.value} onChange={this.onChange.bind(this) }
-                                             className="form-control">
-                                                 {majors.map(major => <option value={major.id} key={major.id} >{major.name}</option>)}
+                                        className="form-control">
+                                            <option value=""selected hidden>Chọn Ngành</option>
+                                            {majors.map(major => <option value={major.id} key={major.id} >{major.name}</option>)}
+                                        
                                     </select>
                                 <label>Hình ảnh</label>
                                 <button type="button" name="image" className="btn btn-info btn-lg btn-block">Get_Image</button>

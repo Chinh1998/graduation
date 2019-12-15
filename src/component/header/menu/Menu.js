@@ -3,6 +3,7 @@ import {
   Link
 } from "react-router-dom";
 import './menu.css';
+import ls from 'local-storage';
 class Menu extends Component {
     constructor(props){
         super(props);
@@ -10,6 +11,7 @@ class Menu extends Component {
             majors: []
            };
     }
+   
     async componentDidMount() {
         const response = await fetch('/major');
         const body = await response.json();
@@ -25,18 +27,11 @@ class Menu extends Component {
                   <li className="menu_li"><Link to="/allnews" className="btn btn-info">NGÀNH KHỞI NGHIỆP</Link>
                     <ul className="sub-menu">
                         {majors.map(major => <li key={major.id}>
-                            <Link  to={"/major/"+major.id} className="btn btn-primary" >{major.name}</Link></li>)}
+                            <Link  to={"/major/"+major.id} className="btn btn-primary"  >{major.name}</Link></li>)}
                     </ul>
                   </li> 
                   <li className="menu_li"><Link to="/law" className="btn btn-info">PHÁP LÝ</Link></li> 
                   <li className="menu_li"><a href="http://ute.udn.vn/default.aspx" className="btn btn-info">UTE.UDN.VN </a> </li>
-                  <li className="menu_li"><Link to="/users/:userId"  className="btn btn-info">TRANG CÁ NHÂN</Link>
-                      <ul className="sub-menu">
-                          <li><Link to="/logout" className="btn btn-primary">Đăng Xuất</Link></li>
-                          <li><Link to="/news/post" className="btn btn-primary">Tạo Bài Viết</Link></li>
-                          <li><Link to="/my_profile" className="btn btn-primary" >Bài Viết Của Tôi</Link></li>
-                      </ul>
-                  </li> 
                   <li className="menu_li formsearch">
                       <form className="form-inline">
                           <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>

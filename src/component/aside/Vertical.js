@@ -13,7 +13,7 @@ class Vertical extends Component{
      render() {
        return (
             <div className="vertical">
-            <Link to="/it" className="btn btn-primary">Điện - Điện Tử</Link>
+            <Link to="/it" className="btn btn-primary">Bài Viết Mới Nhất</Link>
                 
             </div>
            

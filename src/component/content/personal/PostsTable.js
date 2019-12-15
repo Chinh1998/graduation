@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ls from 'local-storage'
 import './PostsTable.css';
 import NewsRow from "./NewsRow";
 
@@ -20,10 +21,10 @@ class PostsTable extends Component {
             <table className="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">Post Image</th>
-                        <th scope="col">Post Title</th>
-                        <th scope="col">Post Content</th>
-                        <th scope="col">Actions</th>
+                        <th scope="col">Hình Ảnh</th>
+                        <th scope="col">Tiêu Đề</th>
+                        <th scope="col">Nội Dung</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,11 +38,12 @@ class PostsTable extends Component {
     }
 
    async deleteNews(postId) {
-        console.log('Deleting news: ' + postId);
-        // SEND AJAX "/news/"+ postID
-
+        const jwtToken = ls.get('jwtToken');
         const requestOptions = {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+               'Authorization': jwtToken
+            },
           };
          await fetch("/news/" + postId, requestOptions).then((response) => {
             return response.json();

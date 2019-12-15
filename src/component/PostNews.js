@@ -5,9 +5,6 @@ import '../css/postnews.css';
 class PostNews extends Component{
     constructor(props) {
         super(props);
-        this.state={
-         countViews:this.props.view
-        }
        }
      render() {
         const { post } = this.props;
@@ -16,15 +13,20 @@ class PostNews extends Component{
             <div className="postnews">
                 <img className="img_news" src={post.image} alt=""/>
                 <div className="postnews_content">
-                    <p><Link to={"/viewnews/"+post.id} className="title" >{post.title}</Link></p>
+                    <button className="link"><Link to={"/viewnews/"+post.id} className="title"  >{post.title}</Link></button>
                     <p>{post.content}</p>
-                </div>
+                    </div>
             </div>
             );
         }
         return null;
     }  
- 
-}
+    countViews(postId){
+        console.log( postId);
+        const { post } = this.props;
+        console.log(post.view +1)
+    }
+        
+    }
 
 export default PostNews;

@@ -13,17 +13,17 @@ class Footer extends Component{
 					<h6 className="font-weight-bold mb-0">Địa Chỉ</h6>
 					<p>48 Cao Thắng - Thanh Bình - Hải Châu - Đà Nẵng</p>
 					<h6 className="font-weight-bold mb-0">Have any questions?</h6>
-					<p><a >Support@userthemes.com</a></p>
+					<p>Support@userthemes.com</p>
 					<h6 className="font-weight-bold mb-0">Điện thoại:</h6>
-					<p><a >(0236) 3822571</a></p>
+					<p>(0236) 3822571</p>
 				</div>
 				<div className="purpose">
 					<h5 className="mb-4 font-weight-bold">PURPOSE</h5>
-					<p className="mb-0"><a >@userthemesrel </a> HTML Version Out Now</p>
+					<p className="mb-0">@userthemesrel HTML Version Out Now</p>
 					<label>10 Mins Ago</label>
-					<p className="mb-0"><a >@userthemesrel </a> HTML Version Out Now</p>
+					<p className="mb-0">@userthemesrel HTML Version Out Now</p>
 					<label>10 Mins Ago</label>
-					<p className="mb-0"><a >@userthemesrel </a> HTML Version Out Now</p>
+					<p className="mb-0">@userthemesrel HTML Version Out Now</p>
 					<label>10 Mins Ago</label>
 				</div>
 				<div className="connect">

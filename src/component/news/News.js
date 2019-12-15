@@ -43,15 +43,10 @@ class News extends Component{
                         <p>{post.content}</p>
                     </div>
                     <div className="showComment">
-                        <table className="table">
-                            <tbody>
-                                {comments.map(comment =>
-                                    <Comment key={comment.id} comment={comment} deleteComment={() => this.deleteComment(comment.id)}/>
-                                )}
-                            </tbody>
-                        </table>
+                        {comments.map(comment =>
+                            <Comment key={comment.id} comment={comment} deleteComment={() => this.deleteComment(comment.id)}/>
+                        )}
                     </div>
-                    
                     <AddComment postId={post.id} updateComment={() => this.updateComment()}/>
                 </div>
             );

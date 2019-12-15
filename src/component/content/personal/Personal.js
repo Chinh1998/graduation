@@ -1,24 +1,45 @@
 import React, {Component} from 'react';
+import ls from 'local-storage';
+import './personal.css'
 
 
 class Personal extends Component{
     constructor(){
       super();
       this.state = {
-        posts: []
+        users: []
        };
     }
     async componentDidMount() {
-    const response = await fetch('/users/60e8fb11-2668-43f3-8fca-3df0e560923a');
-    const body = await response.json();
-    this.setState({ posts: body });
+      const token = ls.get('jwtToken');
+      const requestOptions = {
+        method: "GET",
+        headers: {
+            "Content-Type":"application/json",
+            'Authorization': "Bearer " + token
+        },
+       };
+      const user = ls.get('user');
+      console.log(user);
+      const response = await fetch('/users/'+user.id, requestOptions);
+      const body = await response.json();
+      this.setState({ users: body });
   }
 render(){
-    const { user} = this.state;
+    const { users} = this.state;
     return(
         <div class="personal">
-          <h4>{user.name}</h4>
+          <h4>Thông Tin Cá Nhân</h4>
+            <a className="badge">Tên đăng nhập:</a> {users.username}<br></br>
+            <label className="badge">Số Điện Thoại:</label> {users.phone}<br></br>
+            <label className="badge">Chức Danh:</label> {users.functionuser}<br></br>
+            <li className="menu-li"><a className="btn btn-info">Đổi mật khẩu</a>
+              <ul className="sub-changepass">
+                  <li> Mật khẩu cũ:<input type="password" name="password" className="form-control"  placeholder="Password"/></li>
+                  <li> Mật khẩu mới:<input type="password" name="password" className="form-control"  placeholder="Password"/></li>
+              </ul>
             
+            </li>
         </div>
     );
 }

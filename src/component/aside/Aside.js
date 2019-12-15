@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom'
 import './aside.css';
 
 class Aside extends Component{
     render(){
         return(
             <div className="aside">
-                <h4>Aside</h4>
+               <Link to="/it" className="btn btn-primary">Được Xem Nhiều Nhất</Link>
             </div>
         );
     }

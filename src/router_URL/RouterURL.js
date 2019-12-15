@@ -25,9 +25,10 @@ class RouterURL extends Component {
                 
                 <Route path="/register" component={Register}/>
                 <Route path="/login" component ={Login}/>
+                <Route path="/logout" component ={Login}/>
 
                 <Route path="/my_profile" component={My_profile}/>
-                <Route path="/users/60e8fb11-2668-43f3-8fca-3df0e560923a" component={Personal}/>
+                <Route path="/users/:userId" component={Personal}/>
                 <Route path="/viewnews/:newsId" component={News}/>
                 <Route path="/news/post" component={CreatePost}/>
                 <Route component={HomePage}/>
