@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
+import ls from 'local-storage'
 import Comment from '../comment/Comment';
+import people from "./microsoft-img.png"
 import './news.css'
 import AddComment from '../comment/AddComment';
+import { Link } from 'react-router-dom';
 
 class News extends Component{
     
@@ -13,9 +16,22 @@ class News extends Component{
             comments: []
         }
     }
+    componentDidMount() {
+        this.getData();
+    }
 
-    async componentDidMount() {
-        const newsId = this.props.match.params.newsId;
+    componentDidUpdate(prevProps) {
+        if (this.props.newsId !== prevProps.newsId) {
+            this.getData();
+        }
+    }
+
+    isLoggedIn() {
+        const token = localStorage.getItem("jwtToken");
+        return token !== undefined && token !== null;
+    }
+    async getData(){
+        const newsId = this.props.newsId;
         const viewNews = await fetch('/news/'+newsId);
         const body = await viewNews.json();
         const commentNews = await fetch('/news/'+newsId+'/comments');
@@ -36,10 +52,14 @@ class News extends Component{
         } else {
             return (
                 <div className="contentNew">
+                    <div className="user">
+                        <img className="userpost" src={people} alt=""/>
+                        <Link to={"/users/"} className="userName">{post.user.username+" "}</Link>
+                        <label> => {post.majors.name}</label>
+                    </div> 
                     <div className="viewBox" >
                         <h3>{post.title}</h3>
-                        <img src={post.image} alt="" />
-                        
+                        <img className="newimage" src={post.image} alt="" />
                         <p>{post.content}</p>
                     </div>
                     <div className="showComment">
@@ -47,13 +67,16 @@ class News extends Component{
                             <Comment key={comment.id} comment={comment} deleteComment={() => this.deleteComment(comment.id)}/>
                         )}
                     </div>
-                    <AddComment postId={post.id} updateComment={() => this.updateComment()}/>
+                    {
+                    this.isLoggedIn()
+                    && <AddComment postId={post.id} updateComment={() => this.updateComment()}/>
+                    }
                 </div>
             );
         }
     }
     async updateComment() {
-        const newsId = this.props.match.params.newsId;
+        const newsId = this.props.newsId;
         const commentNews = await fetch('/news/'+newsId+'/comments');
         const comments = await commentNews.json();
         this.setState({
@@ -64,17 +87,26 @@ class News extends Component{
       //--------------------------------
       async deleteComment(commentId) {
         // SEND AJAX "/news/"+ postID
-
+        const token = ls.get('jwtToken');
         const requestOptions = {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                'Authorization': "Bearer " + token
+            },
           };
-         await fetch("/cmt/" + commentId, requestOptions);
-        const newsId = this.props.match.params.newsId;
-        const commentNews = await fetch('/news/'+newsId+'/comments');
-        const comments = await commentNews.json();
-        this.setState({
-            comments: comments
-        });
+         const response= await fetch("/cmt/" + commentId, requestOptions);
+         if(response.ok){
+            const newsId = this.props.newsId;
+            const commentNews = await fetch('/news/'+newsId+'/comments');
+            const comments = await commentNews.json();
+            this.setState({
+                comments: comments
+            });
+        }
+        else {
+            alert("Bạn chưa đăng nhập");
+            this.props.history.push("/login");
+        }
     }
 }
 

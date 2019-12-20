@@ -20,9 +20,8 @@ class CreatePost extends Component{
         event.preventDefault();
         const data= {
             "title": this.title.value,
-            "image": "/image/slide2.png",
+            "image": this.image.value,
             "content": this.content.value,
-            "view": 0,
             "majors_id": this.state.value,
             "approved": "true"
             
@@ -54,23 +53,27 @@ class CreatePost extends Component{
             <div>
                 <div className="createpost_form">
                     <form onSubmit={this.createPost}>
-                        <fieldset>
-                            <legend>TẠO BÀI VIẾT</legend>
-                                <label>Tiêu đề</label>
-                                <input ref={(ref) => {this.title = ref}} type="text" name="title" className="form-control"/>
-                                <label >Chuyên Ngành</label>
-                                    <select value={this.state.value} onChange={this.onChange.bind(this) }
-                                        className="form-control">
-                                            <option value=""selected hidden>Chọn Ngành</option>
-                                            {majors.map(major => <option value={major.id} key={major.id} >{major.name}</option>)}
-                                        
-                                    </select>
-                                <label>Hình ảnh</label>
-                                <button type="button" name="image" className="btn btn-info btn-lg btn-block">Get_Image</button>
-                                <label>Nội dung</label>
-                                <textarea ref={(ref) => {this.content = ref}} className="form-control" rows="10" id="comment"></textarea><br></br>
-                            <button type="submit" className="btn btn-danger"style={{float:"right",width:"20%"}}>Create</button>
-                        </fieldset>
+                    <fieldset>
+                        <legend>TẠO BÀI VIẾT</legend>
+                        <label>Tiêu đề</label>
+                        <input ref={(ref)=> {this.title = ref}} type="text" name="title" className="form-control"/>
+                        <br></br>
+                        <label>Chuyên Ngành</label>
+                        <select value={this.state.value} onChange={this.onChange.bind(this) } className="form-control">
+                            <option value="" selected hidden>Chọn Ngành</option>
+                            {majors.map(major =>
+                            <option value={major.id} key={major.id}>{major.name}</option>)}
+
+                        </select>
+                        <br></br>
+                        <label>Link hình ảnh</label>
+                        <input ref={(ref)=> {this.image = ref}} type="text" name="image" className="form-control"/>
+                        <br></br>
+                        <label>Nội dung</label>
+                        <textarea ref={(ref)=> {this.content = ref}} className="form-control" rows="10" id="comment"></textarea>
+                        <br></br>
+                        <button type="submit" className="btn btn-danger" style={{float: "right",width: "20%"}}>Create</button>
+                    </fieldset>
                     </form>
                 </div>
             </div>

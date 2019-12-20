@@ -1,20 +1,38 @@
 .contentNew{width: 77%;
     height: auto;
     float: left;
+    background: white;
     border: cadetblue 1px solid;
     border-radius: 10px;
     margin-bottom: 1%;
     padding: 1%;
 }
-.contentNew img{
-    width: 35%;
-    float: left;
-    margin-right: 1%;
+.userpost{
+    width: 50px;
+}
+
+.user{
+    font-size: 17px;
+    color: #0b76e4;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.userName{
+    color:#0b76e4 ;
+    margin-left: 5px;
+}
+.userName:hover{
+    text-decoration: none;
+}
+.contentNew .newimage{
+    display: block;
+    margin: 20px auto 20px auto;
+    width: 60%;
 }
 .contentNew p{
     text-align: justify;
+    font-size: 20px;
 }
-.vertical{float: left;}
 .news_comment{
     width: 78%;
     height: auto;

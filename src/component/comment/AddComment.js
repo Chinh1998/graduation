@@ -8,11 +8,10 @@ class AddComment extends Component {
         this.Submit = this.Submit.bind(this);
     }
     async Submit(event) {
-        const user = ls.get('user');
+        const token =ls.get('jwtToken');
         event.preventDefault();
         const data = {
             "content_cmt": this.content.value,
-            "userId": user.id,
             "newsId": this.props.postId
         }
         
@@ -20,6 +19,7 @@ class AddComment extends Component {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                "Authorization": "Bearer "+token
             },
             body: JSON.stringify(data)
         };

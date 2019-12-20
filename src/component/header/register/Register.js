@@ -54,7 +54,7 @@ class Register extends Component{
                             <option >Nhà Gọi Vốn</option>
                             <option  value="5" hidden>Chọn Chức Danh</option>
                             </select><br></br>
-                    <button type="submit" className="btn btn-danger">Sign in</button><br></br>
+                    <button type="submit" className="btn btn-danger">Đăng Kí</button><br></br>
                 </fieldset>
             </form>
         </div>

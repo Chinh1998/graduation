@@ -3,7 +3,7 @@ import ls from 'local-storage';
 import PostsTable from './PostsTable';
 import './myprofile.css'
 
-class My_profile extends Component{
+class MyProfile extends Component{
   constructor() {
     super();
     this.state = {
@@ -43,4 +43,4 @@ render(){
     );
 }
 }
-export default My_profile;
+export default MyProfile;

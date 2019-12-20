@@ -1,32 +1,30 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import eye from "./eye.png";
 import '../css/postnews.css';
 
 class PostNews extends Component{
-    constructor(props) {
-        super(props);
-       }
-     render() {
+    render() {
         const { post } = this.props;
-        if(post.approved=="1"){
+         if(post.approved===true){
         return (
             <div className="postnews">
+                <Link to={"/viewnews/"+post.id}>
+                <div className="view">
+                    <img className="img_views" src={eye} alt=""/>
+                    <p className="numberview">{post.view}</p>
+                </div>
                 <img className="img_news" src={post.image} alt=""/>
                 <div className="postnews_content">
-                    <button className="link"><Link to={"/viewnews/"+post.id} className="title"  >{post.title}</Link></button>
+                    <Link to={"/viewnews/"+post.id} className="title"  >{post.title}</Link>
                     <p>{post.content}</p>
                     </div>
+                </Link>
             </div>
             );
         }
         return null;
     }  
-    countViews(postId){
-        console.log( postId);
-        const { post } = this.props;
-        console.log(post.view +1)
-    }
-        
-    }
+}
 
 export default PostNews;

@@ -3,7 +3,6 @@ import {
   Link
 } from "react-router-dom";
 import './menu.css';
-import ls from 'local-storage';
 class Menu extends Component {
     constructor(props){
         super(props);

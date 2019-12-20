@@ -22,7 +22,6 @@ class AllNews extends Component{
                 {posts.map(post =>
                         <PostNews key={post.id} post={post}/>
                     )}
-
             </div>
         );
     }

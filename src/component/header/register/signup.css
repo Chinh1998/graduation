@@ -9,7 +9,8 @@
     list-style: none;
     float: left;
     }
-  .signup .btn-danger{font-size: 12px;
+  .signup .btn-danger{
+  font-size: 12px;
   font-weight: bold;}
   .showName{
     color: white;
@@ -21,4 +22,5 @@
   .people{
     width: 35px;
     margin-right: 5px;
+    float: left;
   }

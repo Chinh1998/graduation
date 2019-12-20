@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PostNews from '../PostNews';
+import './majornews.css'
 
 class MajorNews extends Component {
     constructor(props) {
@@ -15,13 +16,13 @@ class MajorNews extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.match.params.majorId !== prevProps.match.params.majorId) {
+        if (this.props.majorId !== prevProps.majorId) {
             this.getData();
         }
     }
 
     async getData() {
-        const majorId = this.props.match.params.majorId;
+        const majorId = this.props.majorId;
         const viewNews = await fetch('/major/'+majorId+"/news");
         const body = await viewNews.json();
         this.setState({
@@ -33,7 +34,7 @@ class MajorNews extends Component {
     render(){
         const { posts } = this.state;
         return (
-            <div className="post_app">
+            <div className="major-news">
                 {posts.map(post =>
                         <PostNews key={post.id} post={post}/>
                     )}

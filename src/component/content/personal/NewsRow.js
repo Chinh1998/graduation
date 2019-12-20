@@ -31,7 +31,7 @@ class NewsRow extends Component {
             <tr>
                 <td><img alt="myimage" className="imgtbnews" src={post.image}></img></td>
                 <td><Link to={"/viewnews/"+post.id} className="title" >{post.title}</Link></td>
-                <td>{post.content.slice(0,100)}...</td>
+                <td>{post.content}...</td>
                 <td>
                     <button onClick={this.enterEditMode} className="btn btn-primary">Edit</button>
                     <button onClick={this.props.deleteNews} className="btn btn-danger">Delete</button>

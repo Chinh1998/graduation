@@ -12,13 +12,32 @@
     float: left;
     margin-right: 2%;
 }
+.postnews .img_news:hover{
+    transition: 1s;
+
+}
+.view{
+    position: absolute;
+    left: 25px;
+}
+
+.numberview{
+    float: left;
+    color: white;
+    position: relative;
+    top: -3px;
+}
+.img_views{
+    width: 18px;
+    float: left;
+}
 .postnews_content{
-    width: 67%;
+    width: 65%;
     float:left;
 }
 .postnews .title{
     text-decoration: none;
-    color: peru;
+    color:#25aa86;
     text-align: justify;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;;
     font-size: 20px;
@@ -28,6 +47,7 @@
     color: crimson;;}
 .postnews p{
     text-align: justify;
+    color: black;
 }
 .link{
     background: none;

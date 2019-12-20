@@ -18,7 +18,7 @@ class Signup extends Component{
     onClick(){
         ls.remove('jwtToken');
         ls.remove('user');
-        console.log(this.props);
+        this.props.history.push('/login');
         window.location.reload(true);
     }
     
@@ -27,12 +27,12 @@ class Signup extends Component{
             const user=JSON.parse(localStorage.getItem('user'));
             return (
                 <div>
-                    <img className="people" src={people}></img>
-                    <li className="menu-li"><Link to={"/users/"+user.id} className="showName" >{user.username}</Link>
+                    <img className="people" src={people} alt=""></img>
+                    <li className="menu-li"><Link to={"/users/"+user.id} className="showName" > Tôi là: {user.username}</Link>
                     <ul className="sub-menu">
-                          <li><Link to="/logout" className="btn btn-primary" onClick={this.onClick}>Đăng Xuất</Link></li>
-                          <li><Link to="/news/post" className="btn btn-primary">Tạo Bài Viết</Link></li>
-                          <li><Link to="/my_profile" className="btn btn-primary" >Bài Viết Của Tôi</Link></li>
+                          <li><Link to="/logout" className="btn btn-success" onClick={this.onClick}>Đăng Xuất</Link></li>
+                          <li><Link to="/news/post" className="btn btn-success">Tạo Bài Viết</Link></li>
+                          <li><Link to="/my_profile" className="btn btn-success" >Bài Viết Của Tôi</Link></li>
                       </ul>
                     </li>
                 </div>

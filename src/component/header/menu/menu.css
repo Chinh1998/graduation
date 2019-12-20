@@ -6,7 +6,7 @@
     height: auto ;
     box-sizing: border-box;
     border-radius: 7px;
-    margin-left: 2.5%;
+    margin-left: 4%;
    }
 .menu{
   float: left;
@@ -19,6 +19,7 @@
    }
    .sub-menu {
     position: absolute;
+    
     width: auto;
     height: auto;
     display: none;

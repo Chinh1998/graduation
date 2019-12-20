@@ -13,19 +13,21 @@
     float: left;
     width: 15%;
     height: auto;
-    margin: 1% 0px 0px 1%;
+    margin: 0.5% 0px 0px 1%;
    }
    .logo_app img{
      width: 100%;
      float: left;
    }
    .signup{
-    width: 30%;
+    width: 15%;
     height: auto;
-    float: right;
-    margin: 0.5% 8% 0.2% 0px;
+    float: left;
+    margin-top:  1.5%;
   }
   .nav{
-    width: 83%;
+    width: 65%;
     height: auto ;
+    float: left;
+    margin-top:  1%;
   }  

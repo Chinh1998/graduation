@@ -1,7 +1,12 @@
 .regis_form{
-    width: 60%;
+    width: 35%;
     margin: 1% 0% 0% 20%;
+    background-color: white;
+    height: auto;
+    border-radius: 7px;
+    box-shadow: 0 2px 3px 0px rgb(68, 68, 68);
+    float: left;
 }
 .regis_form .form-control{
-    width: 50%;
+    width: 90%;
 }
