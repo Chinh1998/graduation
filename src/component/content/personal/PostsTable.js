@@ -48,7 +48,6 @@ class PostsTable extends Component {
          await fetch("/news/" + postId, requestOptions).then((response) => {
             return response.json();
           }).then((result) => {
-            
             const { posts } = this.state;
             const newPosts = posts.filter(function(post) {
                 return post.id !== postId;

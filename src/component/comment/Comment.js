@@ -10,18 +10,16 @@ class Comment extends Component{
         return(
             <div className="comment">
                 <div className="box">
-                    <div className="box_comment">
-                        <img className="mancomment" src={people} alt=""/>  
-                        <Link to={"/users/"+comment.user.id} className="user">{comment.user.username}</Link>
-                        <h6>{comment.user.functionuser}</h6>
-                    </div>
-                    <div className="content_comment">{comment.content_cmt} </div>
+                <div className="box_comment">
+                    <img className="mancomment" src={people} alt="" />
+                    <Link to={ "/users/"+comment.user.id} className="user">{comment.user.username}</Link>
+                    <h6>{comment.user.functionuser}</h6>
                 </div>
-               <div className="action"> 
-                <img className="icon-delete" src={delte} onClick={this.props.deleteComment} alt="" />
-              
-                </div> 
-                
+                <div className="content_comment">{comment.content_cmt} </div>
+                <div className="action">
+                    <img className="icon-delete" src={delte} onClick={this.props.deleteComment} alt="" />
+                </div>
+                </div>
             </div>
         );
     }

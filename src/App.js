@@ -14,19 +14,25 @@ import PersonalPage from './page/PersonalPage';
 import NewsPage from './page/NewsPage';
 import CreatePostPage from './page/CreatePostPage';
 import LawPage from './page/LawPage';
+import AdminPage from './page/AdminPage';
+import PendingNewsPage from './page/PendingNewsPage';
+import AdminPendingNewsPage from './page/AdminPendingNewsPage';
 
 class App extends Component {
   render(){
     return (
       <Router>
         <Switch>
+            <Route path="/admin" component={AdminPage}/>
             <Route exact path="/" component={HomePage}/>
             <Route path="/login" component={LoginPage}/>
             <Route path="/about" component={About}/>
             <Route path="/major/:majorId" component={MajorNewsPage}/>
             <Route path="/register" component={RegisterPage}/>
             <Route path="/my_profile" component={MyProfilePage}/>
+            <Route path="/my_pendingnews" component={PendingNewsPage}/>
             <Route path="/users/:userId" component={PersonalPage}/>
+            <Route path="/viewpendingnews/:pendingNewsId" component={AdminPendingNewsPage}/>
             <Route path="/viewnews/:newsId" component={NewsPage}/>
             <Route path="/news/post" component={CreatePostPage}/>
             <Route path="/law" component ={LawPage}/>

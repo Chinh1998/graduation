@@ -14,7 +14,7 @@ class MyProfilePage extends Component{
                   <Vertical/>
               </div>
               <div className="Container">
-                <MyProfile/>
+                <MyProfile history={this.props.history}/>
               </div>
           </div>
           <div className="footer" >

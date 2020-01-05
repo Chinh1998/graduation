@@ -21,7 +21,7 @@
     left: 25px;
 }
 
-.numberview{
+.view .numberview{
     float: left;
     color: white;
     position: relative;
@@ -48,6 +48,8 @@
 .postnews p{
     text-align: justify;
     color: black;
+    font-size: 16px;
+    font-weight: normal;
 }
 .link{
     background: none;

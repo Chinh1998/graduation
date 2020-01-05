@@ -6,6 +6,7 @@ class AddComment extends Component {
     constructor(props) {
         super(props);
         this.Submit = this.Submit.bind(this);
+       
     }
     async Submit(event) {
         const token =ls.get('jwtToken');
@@ -23,7 +24,7 @@ class AddComment extends Component {
             },
             body: JSON.stringify(data)
         };
-        await fetch('/cmt', requestOptions).then((response) => {
+        await fetch('/comment', requestOptions).then((response) => {
             return response.json();
         }).then((result) => {
             this.props.updateComment()
@@ -34,10 +35,12 @@ class AddComment extends Component {
         
         return(
             <div className="addComment">
+                <p className="btn btn-secondary">Your Comment</p>
                 <form onSubmit={this.Submit}>
                     <div className="form-group">
-                        <textarea ref={(ref)=> {this.content = ref}} className="form-control" rows="3" id="comment" name="content_cmt"></textarea>
-                        <button type="submit" className="btn btn-primary" style={{float: "right"}}>Post Comment</button>
+                        <input type="text" ref={(ref)=> {this.content = ref}} className="form-control textComment"  
+                        name="content_cmt" placeholder="write your comment"/>
+                        <button type="submit" className="postComment" style={{float: "right"}}>Post Comment</button>
                     </div>
                 </form>
             </div>

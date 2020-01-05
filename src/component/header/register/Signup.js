@@ -15,6 +15,11 @@ class Signup extends Component{
         return token !== undefined && token !== null;
     }
 
+    isAdmin(){
+        const { roles } = ls.get('user');
+        return roles.some(role => role.name === "ADMIN");
+    }
+
     onClick(){
         ls.remove('jwtToken');
         ls.remove('user');
@@ -33,6 +38,12 @@ class Signup extends Component{
                           <li><Link to="/logout" className="btn btn-success" onClick={this.onClick}>Đăng Xuất</Link></li>
                           <li><Link to="/news/post" className="btn btn-success">Tạo Bài Viết</Link></li>
                           <li><Link to="/my_profile" className="btn btn-success" >Bài Viết Của Tôi</Link></li>
+                          {!this.isAdmin() && 
+                          <li><Link to="/my_pendingnews" className="btn btn-success" >Bài Chờ Xét Duyệt</Link></li>
+                          }
+                          {this.isAdmin() && 
+                          <li><Link to="/admin" className="btn btn-success" >Trang Quản Trị</Link></li>
+                          }
                       </ul>
                     </li>
                 </div>

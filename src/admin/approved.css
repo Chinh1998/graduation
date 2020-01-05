@@ -1,0 +1,17 @@
+.approved{
+    width: 100%;
+   margin-top: 5px;
+   margin-left: 5px;
+    
+}
+.pendingnews{
+    float: left;
+    width: 100%;
+}
+.approved .img_news{
+    width: 25%;
+    float: left;
+}
+.approved .action{
+    float: left;
+}

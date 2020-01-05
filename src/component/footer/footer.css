@@ -4,7 +4,8 @@
     color: #fff;
     background-color: rgb(25, 90, 163);;
     clear: both;
-    
+    border-radius: 10px;
+    box-shadow: -3px -3px 0 0 rgb(68, 68, 68);
 }
 .infor{
     width: 32%;

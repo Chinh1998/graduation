@@ -10,7 +10,7 @@ class FiveMostPost extends Component{
         return (
             <div className="fivenews">
                 <Link to={"/viewnews/"+post.id} className="title" >{post.title}
-                    <div className="viewmostpost">
+                    <div className="view">
                         <img className="img_views" src={eye} alt=""/>
                         <p className="numberview">{post.view}</p>
                     </div>

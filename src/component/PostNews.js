@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import eye from "./eye.png";
 import '../css/postnews.css';
+import ReactHtmlParser from 'react-html-parser';
 
 class PostNews extends Component{
     render() {
@@ -17,7 +18,7 @@ class PostNews extends Component{
                 <img className="img_news" src={post.image} alt=""/>
                 <div className="postnews_content">
                     <Link to={"/viewnews/"+post.id} className="title"  >{post.title}</Link>
-                    <p>{post.content}</p>
+                    <p>{ReactHtmlParser( post.content)}</p>
                     </div>
                 </Link>
             </div>

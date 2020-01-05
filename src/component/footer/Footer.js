@@ -7,7 +7,7 @@ class Footer extends Component{
     
     render(){
         return(
-			<div className="footer" >
+			<div>
             	<div className="infor">
 					<h5 className="mb-4 font-weight-bold">UTE KHỞI NGHIỆP</h5>
 					<h6 className="font-weight-bold mb-0">Địa Chỉ</h6>

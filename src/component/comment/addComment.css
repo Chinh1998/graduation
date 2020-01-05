@@ -1,4 +1,10 @@
 .addComment{
-    width: 85%;
+    width: 60%;
     margin-top: 10%;
+}
+.postComment{
+    display: none;
+}
+.textComment{
+    height: 80px;
 }

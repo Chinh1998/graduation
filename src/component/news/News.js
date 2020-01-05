@@ -4,6 +4,7 @@ import Comment from '../comment/Comment';
 import people from "./microsoft-img.png"
 import './news.css'
 import AddComment from '../comment/AddComment';
+import ReactHtmlParser from 'react-html-parser';
 import { Link } from 'react-router-dom';
 
 class News extends Component{
@@ -60,7 +61,7 @@ class News extends Component{
                     <div className="viewBox" >
                         <h3>{post.title}</h3>
                         <img className="newimage" src={post.image} alt="" />
-                        <p>{post.content}</p>
+                        <p>{ReactHtmlParser(post.content)}</p>
                     </div>
                     <div className="showComment">
                         {comments.map(comment =>
@@ -94,7 +95,7 @@ class News extends Component{
                 'Authorization': "Bearer " + token
             },
           };
-         const response= await fetch("/cmt/" + commentId, requestOptions);
+         const response= await fetch("/comment/" + commentId, requestOptions);
          if(response.ok){
             const newsId = this.props.newsId;
             const commentNews = await fetch('/news/'+newsId+'/comments');
