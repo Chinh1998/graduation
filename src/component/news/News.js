@@ -61,7 +61,7 @@ class News extends Component{
                     <div className="viewBox" >
                         <h3>{post.title}</h3>
                         <img className="newimage" src={post.image} alt="" />
-                        <p>{ReactHtmlParser(post.content)}</p>
+                        {ReactHtmlParser(post.content)}
                     </div>
                     <div className="showComment">
                         {comments.map(comment =>

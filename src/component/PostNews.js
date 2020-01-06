@@ -18,7 +18,7 @@ class PostNews extends Component{
                 <img className="img_news" src={post.image} alt=""/>
                 <div className="postnews_content">
                     <Link to={"/viewnews/"+post.id} className="title"  >{post.title}</Link>
-                    <p>{ReactHtmlParser( post.content)}</p>
+                    {ReactHtmlParser( post.content)}
                     </div>
                 </Link>
             </div>

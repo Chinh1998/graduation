@@ -1,13 +1,13 @@
 .admin{
     width: 16%;
-    height: 660px;
+    height: 1000px;
     background-color: rgb(44, 47, 51);
     margin-bottom: 15px;
     float: left;
 }
 .admin_approve{
-    width: 55%;
-    height: 800px;
+    width: 60%;
+    height: 1000px;
     float: left;
 }
 .admin img{

@@ -1,5 +1,5 @@
 import React, {Component} from  "react";
-import CreateMajors from "./CreateMajors";
+import "./major.css"
 
 class Majors extends Component{
     constructor(props){
@@ -34,8 +34,9 @@ class Majors extends Component{
                     )
                 }
                 <div className="form_createmajor">
-                <li className="menu-li"><label className="btn btn-info">Thêm Chuyên Ngành</label>
-                <ul className="sub-changepass">
+                <li className="menu-li">
+                <label className="btn btn-info">Thêm Chuyên Ngành</label>
+                <ul className="sub-createmajor">
                 <form onSubmit={this.createMajors}>
                     <fieldset>
                         <label >Mã Chuyên Ngành</label>
@@ -48,7 +49,7 @@ class Majors extends Component{
                 </ul>
             </li>
             </div>
-                </div>
+        </div>
         );
     }
     async createMajors(event){

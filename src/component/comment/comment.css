@@ -4,34 +4,35 @@
     box-sizing: border-box;
     clear: both;
 }
-
-.comment .mancomment{
-    width: 30%;
-    float: left;
-    margin: 5px 5px 0px 0px;
-}
 .box_comment{
-    width: 20%;
-    float: left;
-    padding: 1% 0 0 1%;
-    border-right: solid 1px;
+    width: 50%;
+    margin-bottom: 15px;
 }
-
-.comment .content_comment{
-    width: 74%;
-    margin: 1% 0 2% 0%;
-    padding-left: 4%;
+.comment .mancomment{
+    width: 10%;
     float: left;
-    border-top: solid 1px;
+    margin: 5px 0 0px 0px;
+}
+ .content_comment{
+    width: 100%;
+    margin: 1% 0 2% 0%;
+    float: left;
+}
+.comment:hover .action{
+    display: block;
+}
+.box{
+    width: 80%;
+    margin-left: 5%;
+    float: left;
 }
 .edit{
     width:8%;
     height: 30px;
     }
 .action{
-    margin: 15px 0 0 0;
     height: 20px;
-    float:right;
+    display: none;
 }
 .icon-delete{
     width: 10px;
@@ -39,4 +40,11 @@
 }
 .icon-delete:hover{
     background: red;
+}
+.box_comment .user{
+    font-size: 17px;
+    font-weight: normal;
+}
+.box_comment .user:hover{
+    text-decoration: none;
 }

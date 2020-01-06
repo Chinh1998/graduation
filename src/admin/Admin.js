@@ -22,17 +22,19 @@ class Admin extends Component{
         const user=JSON.parse(localStorage.getItem('user'));
        return (
         <div>
-        <div className="admin">
-            <Link to="/"><img src={logo} alt=""/></Link> 
-            <Link to={"/users/"+user.id} className="showName" >Admin:{user.username}</Link>
-                          <li><Link to="/logout" className="btn btn-outline-light" onClick={this.onClick}>Đăng Xuất</Link></li>
-                          <li><Link to="/news/post" className="btn btn-outline-light">Viết Bài</Link></li>
-                          <li><Link to="/my_profile" className="btn btn-outline-light" >My File</Link></li>
-            
-        </div>
-        <AdminApprove/>
-        <Majors/>
-        <Position/>
+            <div className="admin">
+                <Link to="/"><img src={logo} alt=""/></Link> 
+                <Link to={"/users/"+user.id} className="showName" >Admin:{user.username}</Link>
+                            <li><Link to="/logout" className="btn btn-outline-light" onClick={this.onClick}>Đăng Xuất</Link></li>
+                            <li><Link to="/news/post" className="btn btn-outline-light">Viết Bài</Link></li>
+                            <li><Link to="/my_profile" className="btn btn-outline-light" >My File</Link></li>
+                
+            </div>
+            <AdminApprove/>
+            <div className="right">
+                <Majors/>
+                <Position/>
+            </div>
         </div>
   );
 }

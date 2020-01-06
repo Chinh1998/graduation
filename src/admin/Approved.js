@@ -17,7 +17,7 @@ class Approved extends Component{
                     </div>
                 </Link>
                 </div>
-                <div className="action">
+                <div className="approve_action">
                 <button onClick={this.props.accept} className="btn btn-warning">Phê duyệt</button>
                 <button onClick={this.props.delete} className="btn btn-danger">Delete</button>
                 </div>
