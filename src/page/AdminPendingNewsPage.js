@@ -4,11 +4,11 @@ import PendingNews from "../admin/PendingNews";
 
 class AdminPendingNewsPage extends Component{
     render(){
-      const pendingNewsId = this.props.match.params.pendingNewsId;
+      const newsId = this.props.match.params.newsId;
         return(
           <div className="App">
             <div className="Container">
-                <PendingNews pendingNewsId={pendingNewsId} history={this.props.history}/>
+                <PendingNews newsId={newsId} history={this.props.history}/>
             </div>
             <div className="footer" >
                 <Footer/>

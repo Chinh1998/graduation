@@ -1,17 +1,21 @@
 .login_page{
-    width: 400px ;
-    margin: 5% 0 5% 30%;
-    background-color: white;
+    width: 100% ;
     height: auto;
-    padding-top: 25px;
+   
+}
+.login_page img{
+    width: 35%;
+    float: left;
+    margin: 5% 0 0 10%;
+}
+.login_form{
+    background-color: white;
+    width: 30%;
+    margin: 5% 0 5% 2%;
     border-radius: 7px;
     box-shadow: 0 2px 3px 0px rgb(68, 68, 68);
     float: left;
-}
-
-.login_form{
-    width: 300px;
-    margin: 0px 0 0 10%;
+    padding: 25px 1% 0 1%;
 }
 .inputlogin{
     margin-bottom: 20px;

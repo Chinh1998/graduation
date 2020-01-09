@@ -8,7 +8,7 @@ class PersonalPage extends Component{
     render(){
         return(
           <div className="App">
-          <Header history={this.props.history}/>
+                <Header history={this.props.history}/>
           <div className="section">
               <div>
                   <Vertical/>

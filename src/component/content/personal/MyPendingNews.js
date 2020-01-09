@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './news.css'
 import ls from 'local-storage';
 import PostsTable from './PostsTable';
 

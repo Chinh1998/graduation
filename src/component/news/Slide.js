@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../css/slide.css'
+import './slide.css'
 import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
 import { Link } from 'react-router-dom';

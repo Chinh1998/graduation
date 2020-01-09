@@ -42,7 +42,7 @@ class PostsTable extends Component {
         const requestOptions = {
             method: 'DELETE',
             headers: {
-               'Authorization': jwtToken
+               'Authorization': "Bearer" +jwtToken
             },
           };
          await fetch("/news/" + postId, requestOptions).then((response) => {

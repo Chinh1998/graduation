@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import PostNews from '../PostNews';
+import PostNews from '../news/PostNews';
 import './majornews.css'
 
 class MajorNews extends Component {

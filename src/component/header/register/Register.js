@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './register.css'
+import register from './register.jpg' 
 class Register extends Component{
     constructor(props){
         super(props);
@@ -46,28 +47,29 @@ class Register extends Component{
     render(){
         const {positions} = this.state
         return(
-            <div className="regis_form">
-            <form onSubmit={this.register}>
-                <fieldset>
-                    <legend>Đăng Kí Tài Khoản</legend>
-                    <label htmlFor="myEmail">Tên Đăng Nhập</label>
-                    <input className="form-control" name="username" placeholder="User Name" onChange={this.onChange} />
-                    <label htmlFor="myEmail">Email</label>
-                    <input type="email" name="email" className="form-control"  placeholder="Email" onChange={this.onChange}/>
-                    <label htmlFor="myPassword">Mật Khẩu</label>
-                    <input type="password" name="password" className="form-control"  placeholder="Password" onChange={this.onChange}/>
-                    <label htmlFor="inputNumberphone">Số Điện Thoại</label>
-                    <input type="number" name="phone" className="form-control"  placeholder="0321123321" onChange={this.onChange}/>
-                    <label htmlFor="myState">Chức Danh</label>
-                    <select name="positionId" onChange={this.onChange} value={this.state.value} onhanleChange={this.onhanleChange.bind(this) } className="form-control">
-                            <option value="" selected hidden>Chọn Chức Danh</option>
-                            {positions.map(position =>
-                            <option  value={position.id} key={position.id}>{position.name}</option>)}
+            <div className="register">
+                    <p className="btn btn-primary">Tài Khoản Mới</p>
+                <div >
+                    <form onSubmit={this.register} className="regis_form">
+                            <label htmlFor="myEmail">Tên Đăng Nhập</label>
+                            <input className="form-control" name="username" placeholder="User Name" onChange={this.onChange} />
+                            <label htmlFor="myEmail">Email</label>
+                            <input type="email" name="email" className="form-control"  placeholder="Email" onChange={this.onChange}/>
+                            <label htmlFor="myPassword">Mật Khẩu</label>
+                            <input type="password" name="password" className="form-control"  placeholder="Password" onChange={this.onChange}/>
+                            <label htmlFor="inputNumberphone">Số Điện Thoại</label>
+                            <input type="number" name="phone" className="form-control"  placeholder="0321123321" onChange={this.onChange}/>
+                            <label htmlFor="myState">Chức Danh</label>
+                            <select name="positionId" onChange={this.onChange} value={this.state.value} onhanleChange={this.onhanleChange.bind(this) } className="form-control">
+                                    <option value="" selected hidden>Chọn Chức Danh</option>
+                                    {positions.map(position =>
+                                    <option  value={position.id} key={position.id}>{position.name}</option>)}
 
-                        </select><br></br>
-                    <button type="submit" className="btn btn-danger">Đăng Kí</button><br></br>
-                </fieldset>
-            </form>
+                                </select><br></br>
+                            <button type="submit" className="btn btn-danger">Đăng Kí</button><br></br>
+                    </form>
+                </div>
+            <img src={register} alt=""/>
         </div>
     
         );

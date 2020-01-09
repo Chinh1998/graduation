@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PostNews from './PostNews';
-import '../css/post_app.css'
+import './allnews.css'
 
 class AllNews extends Component{
     constructor() {

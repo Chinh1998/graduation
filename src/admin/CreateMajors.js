@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ls from 'local-storage'
 import './admin.css'
 class CreateMajors extends Component{
     constructor(props){
@@ -16,10 +17,14 @@ class CreateMajors extends Component{
         })
        }
     async createMajors(event){
+        const jwtToken = ls.get('jwtToken');
        event.preventDefault();
         const requestOptions = {
             method: "POST",
-            headers: {"Content-Type":"application/json"},
+            headers: {
+                "Content-Type":"application/json",
+                'Authorization': "Bearer" + jwtToken
+        },
             body: JSON.stringify(this.state)
           };
     const reponse= await fetch('/major',requestOptions);

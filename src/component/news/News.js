@@ -55,15 +55,18 @@ class News extends Component{
                 <div className="contentNew">
                     <div className="user">
                         <img className="userpost" src={people} alt=""/>
-                        <Link to={"/users/"} className="userName">{post.user.username+" "}</Link>
-                        <label> => {post.majors.name}</label>
+                        <p className="userName">{post.user.username+" "}</p>
+                        <Link to={"/major/"+post.majors.id} className="majorName"> > {post.majors.name}</Link>
                     </div> 
                     <div className="viewBox" >
-                        <h3>{post.title}</h3>
+                        <h3 className="post_title">{post.title}</h3>
                         <img className="newimage" src={post.image} alt="" />
                         {ReactHtmlParser(post.content)}
                     </div>
                     <div className="showComment">
+                        <div className="show">
+                            <p className="btn btn-primary">Comment</p>
+                        </div>
                         {comments.map(comment =>
                             <Comment key={comment.id} comment={comment} deleteComment={() => this.deleteComment(comment.id)}/>
                         )}

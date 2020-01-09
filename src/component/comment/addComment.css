@@ -8,3 +8,7 @@
 .textComment{
     height: 80px;
 }
+.addComment .btn-secondary{
+    position: relative;
+    top:15px
+}

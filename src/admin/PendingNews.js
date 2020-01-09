@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactHtmlParser from 'react-html-parser';
 
 class PendingNews extends Component{
     
@@ -6,7 +7,7 @@ class PendingNews extends Component{
         super(props);
         this.state = {
             loading: true,
-            posts:  [],
+            post:  [],
         }
     }
     componentDidMount() {
@@ -14,36 +15,36 @@ class PendingNews extends Component{
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.pendingNewsId !== prevProps.pendingNewsId) {
+        if (this.props.newsId !== prevProps.newsId) {
             this.getData();
         }
     }
 
-    isLoggedIn() {
-        const token = localStorage.getItem("jwtToken");
-        return token !== undefined && token !== null;
-    }
     async getData(){
-        const pendingNewsId = this.props.pendingNewsId;
-        const viewNews = await fetch('/newspending/mypendingpost');
+        const newsId = this.props.newsId;
+        const viewNews = await fetch('/news/'+newsId);
         const body = await viewNews.json();
-        console.log(body);
+        console.log(newsId);
         this.setState({
             loading: false,
-            posts: body,
+            post: body,
         });
     }
 
     render() {
-        const {loading, posts} = this.state;
+        const {loading, post} = this.state;
         if (loading) {
                return (
                    <p>Loading...</p>
                );
         } else {
             return (
-                <div className="myprofile">
-                  
+                <div className="contentNew">
+                   <div className="viewBox" >
+                        <h3>{post.title}</h3>
+                        <img className="newimage" src={post.image} alt="" />
+                        {ReactHtmlParser(post.content)}
+                    </div>
                 </div>
             );
         }

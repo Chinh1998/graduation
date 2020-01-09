@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import eye from "./eye.png";
-import '../css/postnews.css';
+import './postnews.css';
 import ReactHtmlParser from 'react-html-parser';
 
 class PostNews extends Component{

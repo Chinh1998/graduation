@@ -9,8 +9,10 @@
 .App-link {
   color: #61dafb;
 }
+
 .section{
   margin-top: 7%;
+  clear: both;
 }
 .Container{
   width: 100%;

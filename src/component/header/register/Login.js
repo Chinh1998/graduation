@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ls from 'local-storage'
+import login from './login.jpg'
 import './login.css'
 
 class Login extends Component{
@@ -48,6 +49,7 @@ class Login extends Component{
     render(){
         return(
             <div className="login_page">
+                <img src={login} alt=""/>
                 <div className="login_form">
                     {this.state.isLoginFail && <p className="faillogin">Tên đăng nhập hoặc mật khẩu sai !</p>}
                 <form onSubmit={this.login}>

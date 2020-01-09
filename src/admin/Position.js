@@ -1,4 +1,5 @@
 import React, {Component} from  "react";
+import ls from 'local-storage'
 
 class Position extends Component{
     constructor(props){
@@ -48,10 +49,14 @@ class Position extends Component{
         );
     }
     async createPosition(event){
+        const jwtToken = ls.get('jwtToken');
         event.preventDefault();
          const requestOptions = {
              method: "POST",
-             headers: {"Content-Type":"application/json"},
+             headers: {
+                 "Content-Type":"application/json",
+                 'Authorization': "Bearer" + jwtToken
+                },
              body: JSON.stringify(this.state)
            };
      const reponse= await fetch('/positions',requestOptions);

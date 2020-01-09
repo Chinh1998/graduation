@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import Slide from '../Slide';
+import Slide from '../news/Slide';
 import './content.css'
-import AllNews from '../AllNews';
+import AllNews from '../news/AllNews';
 
 class Content extends Component{
    

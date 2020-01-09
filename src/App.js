@@ -32,7 +32,7 @@ class App extends Component {
             <Route path="/my_profile" component={MyProfilePage}/>
             <Route path="/my_pendingnews" component={PendingNewsPage}/>
             <Route path="/users/:userId" component={PersonalPage}/>
-            <Route path="/viewpendingnews/:pendingNewsId" component={AdminPendingNewsPage}/>
+            <Route path="/viewpendingnews/:newsId" component={AdminPendingNewsPage}/>
             <Route path="/viewnews/:newsId" component={NewsPage}/>
             <Route path="/news/post" component={CreatePostPage}/>
             <Route path="/law" component ={LawPage}/>

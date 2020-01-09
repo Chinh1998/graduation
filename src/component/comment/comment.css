@@ -6,16 +6,14 @@
 }
 .box_comment{
     width: 50%;
-    margin-bottom: 15px;
 }
 .comment .mancomment{
-    width: 10%;
+    width: 50px;
     float: left;
-    margin: 5px 0 0px 0px;
 }
  .content_comment{
     width: 100%;
-    margin: 1% 0 2% 0%;
+    margin-bottom: 2%;
     float: left;
 }
 .comment:hover .action{
@@ -44,6 +42,8 @@
 .box_comment .user{
     font-size: 17px;
     font-weight: normal;
+    margin-top: 22px;
+    float: left;
 }
 .box_comment .user:hover{
     text-decoration: none;
