@@ -9,6 +9,8 @@
     width: 60%;
     height: 1000px;
     float: left;
+    border-right: 1px solid ;
+    border-right-color: red;
 }
 .admin img{
     width: 90%;

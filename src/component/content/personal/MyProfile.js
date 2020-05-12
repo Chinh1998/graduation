@@ -38,7 +38,7 @@ render(){
 }
     return(
         <div className="myprofile">
-            <PostsTable posts={posts}/>
+            <PostsTable posts={posts} history={this.props.history}/>
         </div>
     );
 }

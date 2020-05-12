@@ -11,7 +11,8 @@ class Login extends Component{
         this.state ={
             username:"",
             password:"",
-           isLoginFail: false
+           isLoginFail: false,
+           loading: false
         }
     }
     onChange(e){
@@ -21,6 +22,7 @@ class Login extends Component{
        }
     async login(event){
         event.preventDefault();
+        this.setState({loading: true})
         const requestOptions = {
             method: "POST",
             headers: {
@@ -39,7 +41,7 @@ class Login extends Component{
                 window.location.reload(false);
             } else if (response.status === 401) {
                 console.log("login failed");
-                this.setState({isLoginFail: true})
+                this.setState({isLoginFail: true, loading: false})
             } else if (response.status === 500) {
                 console.log("500");
                 // Something went wrong
@@ -56,7 +58,37 @@ class Login extends Component{
                     <fieldset>
                         <input className="form-control inputlogin"  placeholder="Tên đăng nhập" name="username" onChange={this.onChange}/>
                         <input className="form-control inputlogin" type="password" placeholder="Mật khẩu"  name="password" onChange={this.onChange} />
+                        {!this.state.loading && 
                         <button type="submit" className="btn btn-info actionlogin">LOGIN</button>
+                        }
+                        {this.state.loading && 
+                            <div>
+                                <div class="spinner-border text-primary" role="status">
+                                <span class="sr-only">Loading...</span>
+                                </div>
+                                <div class="spinner-border text-secondary" role="status">
+                                <span class="sr-only">Loading...</span>
+                                </div>
+                                <div class="spinner-border text-success" role="status">
+                                <span class="sr-only">Loading...</span>
+                                </div>
+                                <div class="spinner-border text-danger" role="status">
+                                <span class="sr-only">Loading...</span>
+                                </div>
+                                <div class="spinner-border text-warning" role="status">
+                                <span class="sr-only">Loading...</span>
+                                </div>
+                                <div class="spinner-border text-info" role="status">
+                                <span class="sr-only">Loading...</span>
+                                </div>
+                                <div class="spinner-border text-light" role="status">
+                                <span class="sr-only">Loading...</span>
+                                </div>
+                                <div class="spinner-border text-dark" role="status">
+                                <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                        }
                     </fieldset>
                 </form>
                 </div>

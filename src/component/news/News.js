@@ -42,6 +42,7 @@ class News extends Component{
             post: body,
             comments: comments
         });
+        console.log(body);
     }
 
     render() {

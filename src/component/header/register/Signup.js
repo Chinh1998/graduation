@@ -9,20 +9,18 @@ class Signup extends Component{
         super(props);
         this.onClick = this.onClick.bind(this);
     }
-         
     isLoggedIn() {
-        const token = localStorage.getItem("jwtToken");
+        const token = ls.get("jwtToken");
         return token !== undefined && token !== null;
     }
-
     isAdmin(){
         const { roles } = ls.get('user');
         return roles.some(role => role.name === "ADMIN");
     }
-
+    
     onClick(){
         ls.remove('jwtToken');
-        ls.remove('user');
+        ls.remove('user'); 
         this.props.history.push('/login');
         window.location.reload(true);
     }
@@ -33,7 +31,7 @@ class Signup extends Component{
             return (
                 <div>
                     <img className="people" src={people} alt=""></img>
-                    <li className="menu-li"><Link to={"/users/"+user.id} className="showName" > Tôi là: {user.username}</Link>
+                    <li className="menu-li"><Link to={"/users/"+user.id} className="showName" > User: {user.username}</Link>
                     <ul className="sub-menu">
                           <li><Link to="/logout" className="btn btn-success" onClick={this.onClick}>Đăng Xuất</Link></li>
                           <li><Link to="/news/post" className="btn btn-success">Tạo Bài Viết</Link></li>

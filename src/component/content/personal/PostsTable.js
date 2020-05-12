@@ -29,7 +29,8 @@ class PostsTable extends Component {
                 </thead>
                 <tbody>
                     {posts.map(post =>
-                        <NewsRow key={post.id} post={post} deleteNews={() => this.deleteNews(post.id)}/>
+                        <NewsRow key={post.id} history={this.props.history}
+                         post={post} deleteNews={() => this.deleteNews(post.id)}/>
                     )}
                 </tbody>
             </table>

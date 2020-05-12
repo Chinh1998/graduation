@@ -4,7 +4,7 @@ import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import "./createpost.css";
 
-class CreatePost extends Component{
+class EditPost extends Component{
     constructor(props){
         super(props);
         this.state = {
@@ -40,17 +40,17 @@ class CreatePost extends Component{
                 "majors_id": this.state.value, 
             }
             const requestOptions = {
-                method: "POST",
+                method: "PUT",
                 headers: {
                     "Content-Type":"application/json",
                     'Authorization': "Bearer " + token
                 },
                 body: JSON.stringify(data)
             };
-           const response= await fetch('/news/create', requestOptions);
+           const response= await fetch('/news/', requestOptions);
            if(response.ok){
-              alert("tạo thành công");
-              this.props.history.push('/my_pendingnews');
+               const result = await response.json();
+               this.props.history.push('/viewnews/'+result.id);
            } else {
                console.log(response);
                 this.setState({
@@ -62,6 +62,7 @@ class CreatePost extends Component{
         const response = await fetch('/major');
         const body = await response.json();
         this.setState({ majors: body });
+        console.log(this.props);
       }
     render(){
         const {majors, isCreating} = this.state
@@ -70,13 +71,13 @@ class CreatePost extends Component{
                 <div className="createpost_form">
                     <form onSubmit={this.createPost}>
                     <fieldset>
-                        <legend>TẠO BÀI VIẾT</legend>
+                        <legend>SỬA BÀI VIẾT</legend>
                         <label>Tiêu đề</label>
                         <input ref={(ref)=> {this.title = ref}} type="text" name="title" className="form-control"/>
                         <br></br>
                         <label>Chuyên Ngành</label>
-                        <select value={this.state.value} onChange={this.onChange.bind(this) } className="form-control">
-                            <option value="" selected hidden>Chọn Ngành</option>
+                        <select defaultValue="1" value={this.state.value} onChange={this.onChange.bind(this) } className="form-control">
+                            <option value="1" hidden>Chọn Ngành</option>
                             {majors.map(major =>
                             <option value={major.id} key={major.id}>{major.name}</option>)}
 
@@ -91,7 +92,7 @@ class CreatePost extends Component{
                         <br></br>
                         <button type="submit" className="btn btn-danger"
                             style={{float: "right",width: "20%"}}
-                            disabled={isCreating}>Create</button>
+                            disabled={isCreating}>Update</button>
                     </fieldset>
                     </form>
                 </div>
@@ -100,4 +101,4 @@ class CreatePost extends Component{
     }
 
 }
-export default CreatePost;
+export default EditPost;
